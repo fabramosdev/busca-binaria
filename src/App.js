@@ -23,6 +23,14 @@ function App() {
     setPalpite(parseInt(Math.random() * (300 + 1)));
   };
 
+  const resetarJogo = () => {
+    setEstado("ENTRADA");
+    setMin(0);
+    setMax(300);
+    setNumPalpites(1);
+    setPalpite(parseInt(Math.random() * (300 + 1)));
+  };
+
   if (estado === "ENTRADA") {
     return (
       // MODO ENTRADA = ESTADO INICIAL
@@ -30,7 +38,7 @@ function App() {
         <div className="container">
           <br />
           <div className="alert alert-primary" role="alert">
-            Pense em um numero entre 0 e 300:
+            Pense em um número entre 0 e 300:
           </div>
           <button onClick={iniciarJogo} className="btn btn-info">
             Iniciar Jogo
@@ -68,10 +76,10 @@ function App() {
             FIM!
           </div>
           <div class="alert alert-info" role="alert">
-            Acertei o numero {palpite} com {numPalpites}
+            O número {palpite} foi descoberto após {numPalpites}
             {numPalpites === 1 ? " palpite" : " palpites"}.
           </div>
-          <button onClick={iniciarJogo} className="btn btn-info">
+          <button onClick={resetarJogo} className="btn btn-info">
             Iniciar jogo novamente
           </button>
         </div>
